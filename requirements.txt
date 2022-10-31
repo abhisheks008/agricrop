@@ -11,4 +11,3 @@ matplotlib>=1.4.3
 pandas>=0.19
 seaborn>=0.9.1
 jsonschema==3.2.0
-mapper>=0.1.10
