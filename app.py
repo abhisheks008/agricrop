@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, Markup
+from collections.abc import mapping
 import numpy as np
 import pandas as pd
 import pickle
