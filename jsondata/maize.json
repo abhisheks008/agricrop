@@ -1,0 +1,27 @@
+[
+  {
+    "State": "Telangana ",
+    "Area": 29544.91503267974,
+    "Production": 99867.04248366013
+  },
+  {
+    "State": "Himachal Pradesh",
+    "Area": 24895.8125,
+    "Production": 54259.444444444445
+  },
+  {
+    "State": "Rajasthan",
+    "Area": 34955.09245742093,
+    "Production": 46552.435523114356
+  },
+  {
+    "State": "Andhra Pradesh",
+    "Area": 6540.94298245614,
+    "Production": 40630.21710526316
+  },
+  {
+    "State": "Punjab",
+    "Area": 12155.251141552511,
+    "Production": 36767.12328767123
+  }
+]

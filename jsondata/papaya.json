@@ -1,0 +1,27 @@
+[
+  {
+    "State": "Andhra Pradesh",
+    "Area": 408.2307692307692,
+    "Production": 41551.092307692306
+  },
+  {
+    "State": "Kerala",
+    "Area": 1214.906976744186,
+    "Production": 6225.0
+  },
+  {
+    "State": "Assam",
+    "Area": 287.03246753246754,
+    "Production": 5234.201298701299
+  },
+  {
+    "State": "Telangana ",
+    "Area": 43.38461538461539,
+    "Production": 4766.076923076923
+  },
+  {
+    "State": "Manipur",
+    "Area": 215.27777777777777,
+    "Production": 1218.888888888889
+  }
+]

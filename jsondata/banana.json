@@ -1,0 +1,27 @@
+[
+  {
+    "State": "Gujarat",
+    "Area": 2426.751592356688,
+    "Production": 161796.81528662422
+  },
+  {
+    "State": "Tamil Nadu",
+    "Area": 3156.1899313501144,
+    "Production": 134979.51034482758
+  },
+  {
+    "State": "Maharashtra",
+    "Area": 2060.714285714286,
+    "Production": 129811.42857142857
+  },
+  {
+    "State": "Andhra Pradesh",
+    "Area": 3767.3653846153848,
+    "Production": 96420.71153846153
+  },
+  {
+    "State": "Madhya Pradesh",
+    "Area": 740.2019704433498,
+    "Production": 36189.55367231638
+  }
+]

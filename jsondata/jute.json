@@ -1,0 +1,27 @@
+[
+  {
+    "State": "West Bengal",
+    "Area": 35403.49180327869,
+    "Production": 484674.331147541
+  },
+  {
+    "State": "Bihar",
+    "Area": 9790.516393442624,
+    "Production": 83199.41393442624
+  },
+  {
+    "State": "Assam",
+    "Area": 2658.9603524229074,
+    "Production": 25968.13215859031
+  },
+  {
+    "State": "Meghalaya",
+    "Area": 1383.1206896551723,
+    "Production": 11822.189655172413
+  },
+  {
+    "State": "Odisha",
+    "Area": 1056.79754601227,
+    "Production": 4583.392024539879
+  }
+]

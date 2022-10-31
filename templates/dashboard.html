@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Crop Predictor</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.0/chart.min.js" integrity="sha512-RGbSeD/jDcZBWNsI1VCvdjcDULuSfWTtIva2ek5FtteXeSjLfXac4kqkDRHVGf1TwsXCAqPTF7/EYITD0/CTqw==" crossorigin="anonymous"></script>
+
+    <!-- datasource -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource@0.1.0"></script>
+
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <!-- nav bar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Crop Predictor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/predict">Predict Crop</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="/dashboard">Dashboard<span class="sr-only"></span></a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container my-3">
+
+        <!-- Alert -->
+        <div class="alert alert-success glow" role="alert">
+            <h2 class="alert-heading text-center">Data Visuals For Production of Crops</h2>
+            <hr>
+            <ul>
+                <h5 class="text-center mt-3"><b style="color:salmon;font-weight: bold; font-size:1.5 rem;">We can observe the trend of Total Production of several widely used crops/fruits StateWise,below visuals display the stats for the top 5 states which produce the crop/fruit,which are having high impact on the Production</b>                    </h5>
+                </p>
+
+            </ul>
+            <hr>
+
+        </div>
+
+        <!-- All the charts are displayed in this row!! -->
+
+        <div class="row">
+
+
+
+            <!-- Rice -->
+
+            <div class="col-md-4 col-sm-6">
+
+                <div class="card-body">
+                    <label for="banana" style="text-align:center;font-size:1.5rem;font-weight: bold;">Production of Rice in India</label>
+                    <div class="chart-container" style="position: relative;">
+                        <canvas height="400" width="400" id="chart"></canvas>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Jute -->
+            <div class="col-md-4 col-sm-6">
+
+                <div class="card-body">
+
+                    <label for="banana" style="text-align:center;font-size:1.5rem;font-weight: bold;">Production of Jute in India</label>
+                    <div class="chart-container" style="position: relative;">
+                        <canvas height="400" width="400" id="chart2"></canvas>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Maize -->
+            <div class="col-md-4 col-sm-6">
+
+                <div class="card-body">
+
+                    <label for="banana" style="text-align:center;font-size:1.5rem;font-weight: bold;">Production of Maize in India</label>
+                    <div class="chart-container" style="position: relative;">
+                        <canvas height="400" width="400" id="chart3"></canvas>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <!-- Mango -->
+            <div class="col-md-4 col-sm-6">
+
+                <div class="card-body">
+                    <label for="banana" style="text-align:center;font-size:1.5rem;font-weight: bold;">Production of Mango in India</label>
+                    <div class="chart-container" style="position: relative;">
+                        <canvas height="400" width="400" id="chart4"></canvas>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Papaya -->
+            <div class="col-md-4 col-sm-6">
+
+                <div class="card-body">
+                    <label for="banana" style="text-align:center;font-size:1.5rem;font-weight: bold;">Production of Papaya in India</label>
+                    <div class="chart-container" style="position: relative;">
+                        <canvas height="400" width="400" id="chart5"></canvas>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Banana -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card-body">
+                    <label for="banana" style="text-align:center;font-size:1.5rem;font-weight: bold;">Production of Banana in India</label>
+                    <div class="chart-container" style="position: relative;">
+                        <canvas height="400" width="400" id="chart6"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alert -->
+            <div class="alert alert-success glow" role="alert">
+                <h2 class="alert-heading text-center">Observations</h2>
+                <hr>
+                <ul>
+                    <li style="list-style:none">
+                        <h4 class="text-center mt-3"><b style="color:salmon;font-weight: bold; font-size:1.5rem;">Punjab has produced the most quantity of rice</b></h4>
+                    </li>
+                    <li style="list-style:none">
+                        <h4 class="text-center mt-3"><b style="color:salmon;font-weight: bold; font-size:1.5rem;">West Bengal has produced the most quantity of Jute</b></h4>
+                    </li>
+                    <li style="list-style:none">
+                        <h4 class="text-center mt-3"><b style="color:salmon;font-weight: bold; font-size:1.5rem;">Telangana has produced the most quantity of Maize</b></h4>
+                    </li>
+                    <li style="list-style:none">
+                        <h4 class="text-center mt-3"><b style="color:salmon;font-weight: bold; font-size:1.5rem;">Andhra Pradesh has produced the most quantity of Mango</b></h4>
+                    </li>
+                    <li style="list-style:none">
+                        <h4 class="text-center mt-3"><b style="color:salmon;font-weight: bold; font-size:1.5rem;">Andhra Pradesh has produced the most quantity of Papaya</b></h4>
+                    </li>
+                    <li style="list-style:none">
+                        <h4 class="text-center mt-3"><b style="color:salmon;font-weight: bold; font-size:1.5rem;">Gujarat has produced the most quantity of Banana</b></h4>
+                    </li>
+
+
+
+
+                </ul>
+                <hr>
+            </div>
+
+
+            <!-- Goback button -->
+
+            <div class="col-md-12 text-center">
+                <a href="/">
+                    <button id="singlebutton" name="singlebutton" class="btn btn-outline-success my-2 my-sm-0">Go Back</button>
+                </a>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+    <!-- Second try tha ye vala!! -->
+
+
+
+
+
+
+
+
+    <!--phele bootstrap ki starter template mention karro,then as we know that we want to min the size of the chart,so we have created a seperate div for it as shown ↑,and note the "canvas id = "income_vs_outcome" vala part that is the one which
+    we are going to be using the most!!,inorder to scale our charts!" -->
+
+    {% block javascript %}
+    <script>
+        rice_states = new Array();
+        rice_production = new Array();
+        rice_data = [{
+            "State": "Punjab",
+            "Area": 142304.73372781064,
+            "Production": 531662.7218934911
+        }, {
+            "State": "Andhra Pradesh",
+            "Area": 96774.03534303534,
+            "Production": 298840.86278586276
+        }, {
+            "State": "Chhattisgarh",
+            "Area": 198443.97278911565,
+            "Production": 279104.8561643836
+        }, {
+            "State": "West Bengal",
+            "Area": 105256.40247678019,
+            "Production": 266349.689370485
+        }, {
+            "State": "Telangana ",
+            "Area": 76173.51757188498,
+            "Production": 221072.44728434505
+        }]
+        rice_data.forEach(element => {
+            rice_states.push(element['State'])
+            rice_production.push(Math.round(element['Production']))
+        });
+
+
+
+        // jute data
+
+        jute_states = new Array();
+        jute_production = new Array();
+        jute_data = [{
+            "State": "West Bengal",
+            "Area": 35403.49180327869,
+            "Production": 484674.331147541
+        }, {
+            "State": "Bihar",
+            "Area": 9790.516393442624,
+            "Production": 83199.41393442624
+        }, {
+            "State": "Assam",
+            "Area": 2658.9603524229074,
+            "Production": 25968.13215859031
+        }, {
+            "State": "Meghalaya",
+            "Area": 1383.1206896551723,
+            "Production": 11822.189655172413
+        }, {
+            "State": "Odisha",
+            "Area": 1056.79754601227,
+            "Production": 4583.392024539879
+        }]
+        jute_data.forEach(element => {
+            jute_states.push(element['State'])
+            jute_production.push(Math.round(element['Production']))
+        });
+
+
+
+        // maize data
+
+        maize_states = new Array();
+        maize_production = new Array();
+        maize_data = [{
+            "State": "Telangana ",
+            "Area": 29544.91503267974,
+            "Production": 99867.04248366013
+        }, {
+            "State": "Himachal Pradesh",
+            "Area": 24895.8125,
+            "Production": 54259.444444444445
+        }, {
+            "State": "Rajasthan",
+            "Area": 34955.09245742093,
+            "Production": 46552.435523114356
+        }, {
+            "State": "Andhra Pradesh",
+            "Area": 6540.94298245614,
+            "Production": 40630.21710526316
+        }, {
+            "State": "Punjab",
+            "Area": 12155.251141552511,
+            "Production": 36767.12328767123
+        }]
+        maize_data.forEach(element => {
+            maize_states.push(element['State'])
+            maize_production.push(Math.round(element['Production']))
+        });
+
+
+        // mango data
+
+        mango_states = new Array();
+        mango_production = new Array();
+        mango_data = [{
+            "State": "Andhra Pradesh",
+            "Area": 19291.076923076922,
+            "Production": 126983.36923076923
+        }, {
+            "State": "Kerala",
+            "Area": 5745.526315789473,
+            "Production": 28950.01754385965
+        }, {
+            "State": "Tamil Nadu",
+            "Area": 3980.4210526315787,
+            "Production": 24067.80701754386
+        }, {
+            "State": "Telangana ",
+            "Area": 7880.444444444444,
+            "Production": 19839.777777777777
+        }, {
+            "State": "Karnataka",
+            "Area": 3694.9074074074074,
+            "Production": 13235.833333333334
+        }]
+        mango_data.forEach(element => {
+            mango_states.push(element['State'])
+            mango_production.push(Math.round(element['Production']))
+        });
+
+
+        // Papaya Data
+
+
+        papaya_states = new Array();
+        papaya_production = new Array();
+        papaya_data = [{
+            "State": "Andhra Pradesh",
+            "Area": 408.2307692307692,
+            "Production": 41551.092307692306
+        }, {
+            "State": "Kerala",
+            "Area": 1214.906976744186,
+            "Production": 6225.0
+        }, {
+            "State": "Assam",
+            "Area": 287.03246753246754,
+            "Production": 5234.201298701299
+        }, {
+            "State": "Telangana ",
+            "Area": 43.38461538461539,
+            "Production": 4766.076923076923
+        }, {
+            "State": "Manipur",
+            "Area": 215.27777777777777,
+            "Production": 1218.888888888889
+        }]
+        papaya_data.forEach(element => {
+            papaya_states.push(element['State'])
+            papaya_production.push(Math.round(element['Production']))
+        });
+
+
+
+        // banana data
+
+        banana_states = new Array();
+        banana_production = new Array();
+        banana_data = [{
+            "State": "Gujarat",
+            "Area": 2426.751592356688,
+            "Production": 161796.81528662422
+        }, {
+            "State": "Tamil Nadu",
+            "Area": 3156.1899313501144,
+            "Production": 134979.51034482758
+        }, {
+            "State": "Maharashtra",
+            "Area": 2060.714285714286,
+            "Production": 129811.42857142857
+        }, {
+            "State": "Andhra Pradesh",
+            "Area": 3767.3653846153848,
+            "Production": 96420.71153846153
+        }, {
+            "State": "Madhya Pradesh",
+            "Area": 740.2019704433498,
+            "Production": 36189.55367231638
+        }]
+        banana_data.forEach(element => {
+            banana_states.push(element['State'])
+            banana_production.push(Math.round(element['Production']))
+        });
+
+
+
+
+
+
+
+        // chart1 Rice
+
+        var ctx = document.getElementById('chart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: rice_states,
+                datasets: [{
+                    label: 'Production of Rice in India',
+                    data: rice_production,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2.5
+                }]
+            },
+
+            //     yAxes: [{
+            //     ticks: {
+            //         fontSize: 40
+            //     }
+            // }]
+            options: {
+                scales: {
+                    yAxes: [{
+                        beginAtZero: true,
+                        ticks: {
+                            fontSize: 15
+                        }
+
+                    }],
+                    xAxes: [{
+                        beginAtZero: true,
+                        ticks: {
+                            fontSize: 15
+                        }
+
+                    }]
+
+                }
+            }
+        });
+
+        // chart 2 Jute
+
+        var ctx = document.getElementById('chart2').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: jute_states,
+                datasets: [{
+                    label: 'Production of Jute in India',
+                    data: jute_production,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2.5
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        beginAtZero: true,
+                        ticks: {
+                            fontSize: 15
+                        }
+
+                    }],
+                    xAxes: [{
+                        beginAtZero: true,
+                        ticks: {
+                            fontSize: 15
+                        }
+
+                    }]
+
+                }
+            }
+        });
+
+
+        // chart3 Maize
+
+        var ctx = document.getElementById('chart3').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: maize_states,
+                datasets: [{
+                    label: 'Production of Maize in India',
+                    data: maize_production,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2.5
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        beginAtZero: true,
+                        ticks: {
+                            fontSize: 15
+                        }
+
+                    }],
+                    xAxes: [{
+                        beginAtZero: true,
+                        ticks: {
+                            fontSize: 15
+                        }
+
+                    }]
+
+                }
+            }
+        });
+
+        // chart4  Mango
+
+        var ctx = document.getElementById('chart4').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: mango_states,
+                datasets: [{
+                    label: 'Production of Mango in India',
+                    data: mango_production,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2.5
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        beginAtZero: true,
+                        ticks: {
+                            fontSize: 15
+                        }
+
+                    }],
+                    xAxes: [{
+                        beginAtZero: true,
+                        ticks: {
+                            fontSize: 15
+                        }
+
+                    }]
+
+                }
+            }
+        });
+
+
+        // chart5  Papaya
+
+        var ctx = document.getElementById('chart5').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: papaya_states,
+                datasets: [{
+                    label: 'Production of Papaya in India',
+                    data: papaya_production,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2.5
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        beginAtZero: true,
+                        ticks: {
+                            fontSize: 15
+                        }
+
+                    }],
+                    xAxes: [{
+                        beginAtZero: true,
+                        ticks: {
+                            fontSize: 15
+                        }
+
+                    }]
+
+                }
+            }
+        });
+
+        // chart6  Banana
+
+        var ctx = document.getElementById('chart6').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: banana_states,
+                datasets: [{
+                    label: 'Production of Banana in India',
+                    data: banana_production,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2.5
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        beginAtZero: true,
+                        ticks: {
+                            fontSize: 15
+                        }
+
+                    }],
+                    xAxes: [{
+                        beginAtZero: true,
+                        ticks: {
+                            fontSize: 15
+                        }
+
+                    }]
+
+                }
+            }
+        });
+    </script>
+
+    {%endblock%}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
