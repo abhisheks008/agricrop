@@ -1,5 +1,7 @@
 # AgriCrop🌱
 
+<img src="https://github.com/abhisheks008/agricrop/blob/main/static/images/agricrop%20(1).png">
+
 **Abstract:**</br>
 In today’s time technology is playing a vital role
 in different sectors to overcome the difficulties and to have
