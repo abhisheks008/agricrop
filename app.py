@@ -4,10 +4,6 @@ import numpy as np
 import pandas as pd
 import pickle
 
-try:
-    from collections.abc import Mapping
-except ImportError:
-    from collections import Mapping
 
 file = open('cropmodel2.pkl', 'rb')
 svm = pickle.load(file)
@@ -149,7 +145,7 @@ def dashboard():
 # rainfall
 
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET','POST'])
 def predict():
 
     if request.method == 'POST':
