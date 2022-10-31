@@ -1,8 +1,13 @@
 from flask import Flask, render_template, request, Markup
-from collections.abc import Mapping
+#from collections.abc import Mapping
 import numpy as np
 import pandas as pd
 import pickle
+
+try:
+    from collections.abc import Mapping
+except ImportError:
+    from collections import Mapping
 
 file = open('cropmodel2.pkl', 'rb')
 svm = pickle.load(file)
