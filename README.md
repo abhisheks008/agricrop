@@ -1,4 +1,6 @@
-# AgriCrop🌱
+<div align = "center">
+    <h1>AgriCrop🌱</h1>
+</div>
 
 <img src="https://github.com/abhisheks008/agricrop/blob/main/static/images/agricrop%20(1).png">
 
