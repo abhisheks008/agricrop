@@ -64,7 +64,7 @@ assistance to farmers in the area of crop recommendation.
 <code><img height="30" src="https://raw.githubusercontent.com/pytorch/pytorch/39fa0b5d0a3b966a50dcd90b26e6c36942705d6d/docs/source/_static/img/pytorch-logo-dark.svg"></code>
 
 ## How to use🍃
-Crop Recommendation system ==> For this go to the Predict section and then enter the corresponding nutrient values of your soil, Note that, the N-P-K (Nitrogen-Phosphorous-Pottasium) values to be entered should be the ratio between them.
+Crop Recommendation system (agricrop)==> For this go to the Predict section and then enter the corresponding nutrient values of your soil, Note that, the N-P-K (Nitrogen-Phosphorous-Pottasium) values to be entered should be the ratio between them.
 the crop Recommender system will suggest which type of crop/fruit to grow and will also suggest the fertilizer which must be used in order to increase production.
 
 
