@@ -44,7 +44,7 @@ assistance to farmers in the area of crop recommendation.
     
 ## Data Collection🌿
 - [Crop recommendation dataset ](https://www.kaggle.com/atharvaingle/crop-recommendation-dataset) (custom built dataset)
-- [Fertilizer suggestion dataset](https://github.com/Gladiator07/Harvestify/blob/master/Data-processed/fertilizer.csv) (custom built dataset)
+- [Fertilizer suggestion dataset](https://github.com/abhisheks008/agricrop/blob/main/Rawdata/Fertilizer.csv) (custom built dataset)
 - [Disease detection dataset](https://www.kaggle.com/vipoooool/new-plant-diseases-dataset)
 
 
