@@ -23,7 +23,7 @@ sustainability etc. in to the account. This may lead to
 undesirable results for farmers and for the nature of soil too.
 In today’s time, technologies like machine learning and deep
 learning can become game changers in such fields if they are
-used in a proper manner. This paper will represent an effective
+used in a proper manner. This project will represent an effective
 use of such technologies in order to provide maximum
 assistance to farmers in the area of crop recommendation.
 
