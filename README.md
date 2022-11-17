@@ -33,7 +33,7 @@ assistance to farmers in the area of crop recommendation.
 
 - In country like India, majority of the population is dependent on agriculture for their livelihood. Many new technologies, such as Machine Learning and Deep Learning, are being implemented into agriculture so that it is easier for farmers to grow and maximize their yield. 
 
-- In this project, I present a website in which the following applications are implemented; Crop recommendation, Fertilizer recommendation and respectively.
+- In this project, We present a website in which the following applications are implemented; Crop recommendation, Fertilizer recommendation and respectively.
 
 - I have also made some visuals about the production of a crop/fruit for the total year of production,and the states which are contributing the most for a particular crop/fruit 
 
